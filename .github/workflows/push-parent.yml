@@ -1,5 +1,4 @@
-name: push to parents
-
+name: push-bib
 on:
   push:
     branches: [ main ]
@@ -17,3 +16,4 @@ jobs:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           repository: ${{ matrix.repo }}
           event-type: push-bib
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
