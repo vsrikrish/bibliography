@@ -2,13 +2,13 @@ name: push to parents
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   dispatch:
     strategy:
       matrix:
-        repo: ['vsrikrish/my-cv', 'srikrishnan-lab/srikrishnan-lab.github.io']
+        repo: ['srikrishnan-lab/srikrishnan-lab.github.io']
     runs-on: ubuntu-latest
     steps:
       - name: Repository Dispatch
@@ -17,4 +17,3 @@ jobs:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           repository: ${{ matrix.repo }}
           event-type: push-bib
-          
